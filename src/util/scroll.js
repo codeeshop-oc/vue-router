@@ -81,9 +81,17 @@ export function handleScroll (
 export function saveScrollPosition () {
   const key = getStateKey()
   if (key) {
+    const pages = document.querySelectorAll('.page-content');    
+    let y = 0
+    if(pages && typeof pages[0] != 'undefined') {
+      y = pages[0].scrollTop
+    }
+    
+    // x: window.pageXOffset,
+    // y: window.pageYOffset
     positionStore[key] = {
-      x: window.pageXOffset,
-      y: window.pageYOffset
+      x: 0,
+      y: y
     }
   }
 }
