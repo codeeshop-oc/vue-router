@@ -81,18 +81,17 @@ export function handleScroll (
 export function saveScrollPosition () {
   const key = getStateKey()
   if (key) {
-    const pages = document.querySelectorAll('.page-content');    
+    const pages = document.querySelector('.page-content');    
     let y = 0
-    if(pages && typeof pages[0] != 'undefined') {
-      y = pages[0].scrollTop
+    if(pages) {
+      y = pages.scrollTop
     }
     
-    // x: window.pageXOffset,
-    // y: window.pageYOffset
     positionStore[key] = {
       x: 0,
       y: y
     }
+    console.debug(y, 'y')
   }
 }
 
@@ -125,6 +124,7 @@ function isValidPosition (obj: Object): boolean {
 }
 
 function normalizePosition (obj: Object): Object {
+  console.debug(obj, 'obj normalizePosition')
   return {
     x: isNumber(obj.x) ? obj.x : window.pageXOffset,
     y: isNumber(obj.y) ? obj.y : window.pageYOffset

@@ -1858,18 +1858,17 @@ function handleScroll (
 function saveScrollPosition () {
   var key = getStateKey();
   if (key) {
-    var pages = document.querySelectorAll('.page-content');    
+    var pages = document.querySelector('.page-content');    
     var y = 0;
-    if(pages && typeof pages[0] != 'undefined') {
-      y = pages[0].scrollTop;
+    if(pages) {
+      y = pages.scrollTop;
     }
     
-    // x: window.pageXOffset,
-    // y: window.pageYOffset
     positionStore[key] = {
       x: 0,
       y: y
     };
+    console.debug(y, 'y');
   }
 }
 
@@ -1902,6 +1901,7 @@ function isValidPosition (obj) {
 }
 
 function normalizePosition (obj) {
+  console.debug(obj, 'obj normalizePosition');
   return {
     x: isNumber(obj.x) ? obj.x : window.pageXOffset,
     y: isNumber(obj.y) ? obj.y : window.pageYOffset
