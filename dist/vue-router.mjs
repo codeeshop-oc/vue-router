@@ -1867,8 +1867,7 @@ function saveScrollPosition () {
     positionStore[key] = {
       x: 0,
       y: y
-    };
-    console.debug(y, 'y');
+    };    
   }
 }
 
@@ -1900,8 +1899,7 @@ function isValidPosition (obj) {
   return isNumber(obj.x) || isNumber(obj.y)
 }
 
-function normalizePosition (obj) {
-  console.debug(obj, 'obj normalizePosition');
+function normalizePosition (obj) {  
   return {
     x: isNumber(obj.x) ? obj.x : window.pageXOffset,
     y: isNumber(obj.y) ? obj.y : window.pageYOffset

@@ -90,8 +90,7 @@ export function saveScrollPosition () {
     positionStore[key] = {
       x: 0,
       y: y
-    }
-    console.debug(y, 'y')
+    }    
   }
 }
 
@@ -123,8 +122,7 @@ function isValidPosition (obj: Object): boolean {
   return isNumber(obj.x) || isNumber(obj.y)
 }
 
-function normalizePosition (obj: Object): Object {
-  console.debug(obj, 'obj normalizePosition')
+function normalizePosition (obj: Object): Object {  
   return {
     x: isNumber(obj.x) ? obj.x : window.pageXOffset,
     y: isNumber(obj.y) ? obj.y : window.pageYOffset
